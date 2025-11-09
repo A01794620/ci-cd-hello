@@ -13,3 +13,4 @@ jobs:
         run: |
           docker login -u ${{ vars.GIT_USR }} -p ${{secrets.DOCKER_NISH_TTOKEN}}
           docker push docker.io/${{ vars.GIT_USR }}/wine-class-api:latest
+          docker tag wine-class-api:latest us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/wine-class-api:latest
