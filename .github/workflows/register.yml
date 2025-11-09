@@ -23,6 +23,8 @@ jobs:
       - name: Configure Docker to use Artifact Registry
         run: gcloud auth configure-docker us-central1-docker.pkg.dev
 
+
+
       #  us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/wine-class-api
       #- name: Build and push Docker image
       #  uses: docker/build-push-action@v5
