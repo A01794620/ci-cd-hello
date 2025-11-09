@@ -1,12 +1,17 @@
-name: Desplegando en GCP/GitHubActions
+name: Crear Imagen en GCP/GitHubActions
 on:
   push:
     branches:
       - main
 jobs:
-  deploy:
+  image:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: |
-          echo "${{secrets.NISH_VAR}}"
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: built image
+        run: docker build . -t A01794620/wine-class-api:latest
+      - name: push image
+        run: |
+          docker login -u A01794620 -p ${{secrets.DOCKER_NISH_TTOKEN}}
+          docker push A01794620/wine-class-api:latest
