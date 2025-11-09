@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          echo "${{secrets.NISH_VAR}}
+          echo "${{secrets.NISH_VAR}}"
