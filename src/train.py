@@ -30,6 +30,6 @@ with mlflow.start_run() as run:
     mlflow.log_metric("accuracy", accuracy)
     mlflow.sklearn.log_model(model, artifact_path="model", input_example=X_train)
 
-with open("../model_pkl/wine_model_.pkl", "wb") as f:
+with open("model_pkl/wine_model_.pkl", "wb") as f:
     pickle.dump(model, f)
-    f.close()
+    f.close()git 
