@@ -8,12 +8,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: built image
-        run: docker build . -t docker.io/${{ vars.GIT_USR }}/wine-class-api:latest
+        run: docker build . -t docker.io/${{ vars.GIT_USR }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
       - name: push image
         run: |
           docker login -u ${{ vars.GIT_USR }} -p ${{secrets.DOCKER_NISH_TTOKEN}}
-          docker push docker.io/${{ vars.GIT_USR }}/wine-class-api:latest
-          docker tag docker.io/a01794620/wine-class-api:latest us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/wine-class-api:latest
+          docker push docker.io/${{ vars.GIT_USR }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
+          docker tag docker.io/${{ vars.GIT_USR }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }} us-central1-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
   auth-gcp:
     needs: image
     runs-on: ubuntu-latest
@@ -30,5 +30,5 @@ jobs:
       - name: Configure Docker to use Artifact Registry
         run: gcloud auth configure-docker us-central1-docker.pkg.dev
 
-      #- name: Push Docker image to Artifact Registry
-      #  run: docker push us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/wine-class-api:latest
+      - name: Push Docker image to Artifact Registry
+        run: docker push us-central1-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
