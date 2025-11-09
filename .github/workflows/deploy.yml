@@ -14,3 +14,21 @@ jobs:
           docker login -u ${{ vars.GIT_USR }} -p ${{secrets.DOCKER_NISH_TTOKEN}}
           docker push docker.io/${{ vars.GIT_USR }}/wine-class-api:latest
           docker tag docker.io/a01794620/wine-class-api:latest us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/wine-class-api:latest
+  auth-gcp:
+    needs: image
+    runs-on: ubuntu-latest
+    steps:
+      - name: GCP Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{secrets.GCP_CREDS}}'
+
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker to use Artifact Registry
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      #- name: Push Docker image to Artifact Registry
+      #  run: docker push us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/wine-class-api:latest
