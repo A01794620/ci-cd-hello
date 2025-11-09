@@ -5,18 +5,6 @@ jobs:
   auth-gcp:
     runs-on: ubuntu-latest
     steps:
-      - name: GCP Auth
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: '${{secrets.GCP_CREDS}}'
-
-      - name: Set up gcloud CLI
-        uses: google-github-actions/setup-gcloud@v2
-
-      - name: Configure Docker to use Artifact Registry
-        run: gcloud auth configure-docker us-central1-docker.pkg.dev
-
   #image:
   #  needs: auth-gcp
   #  runs-on: ubuntu-latest
@@ -30,5 +18,18 @@ jobs:
           docker login -u ${{ vars.GIT_USR }} -p ${{secrets.DOCKER_NISH_TTOKEN}}
           docker push docker.io/${{ vars.GIT_USR }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
           docker tag docker.io/${{ vars.GIT_USR }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }} us-central1-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
+
+      - name: GCP Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{secrets.GCP_CREDS}}'
+
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker to use Artifact Registry
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
       - name: Push Docker image to Artifact Registry
         run: docker push us-central1-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
