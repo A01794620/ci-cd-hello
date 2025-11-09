@@ -24,4 +24,4 @@ jobs:
         run: gcloud auth configure-docker us-central1-docker.pkg.dev
 
       - name: Push Docker image to Artifact Registry
-        run: docker push us-central1-docker.pkg.dev/mlflow-mlops-g57/mlflow-mlops-g57/wine-class-api:latest
+        run: docker push us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/wine-class-api:latest
