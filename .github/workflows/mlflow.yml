@@ -22,3 +22,10 @@ jobs:
       - name: Run Training script
         run: |
           python src/train.py
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+        run: |
+          echo "${{secrets.NISH_VAR}}"

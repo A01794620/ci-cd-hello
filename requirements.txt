@@ -1,2 +1,6 @@
 mlflow
 scikit-learn
+fastapi
+pydantic
+numpy
+uvicorn

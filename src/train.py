@@ -4,6 +4,7 @@ from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+import pickle
 
 data = load_wine()
 X = data.data
@@ -28,3 +29,7 @@ with mlflow.start_run() as run:
     # Log metrics & mod
     mlflow.log_metric("accuracy", accuracy)
     mlflow.sklearn.log_model(model, artifact_path="model", input_example=X_train)
+
+with open("../model_pkl/wine_model_.pkl", "wb") as f:
+    pickle.dump(model, f)
+    f.close()
