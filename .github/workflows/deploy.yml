@@ -1,8 +1,9 @@
 name: Crear Imagen en GCP/GitHubActions
 on:
-  push:
-    branches:
-      - main
+  [workflow_dispatch]
+  # push:
+  # branches:
+  #    - main
 jobs:
   image:
     runs-on: ubuntu-latest
