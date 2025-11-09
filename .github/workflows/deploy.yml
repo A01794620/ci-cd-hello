@@ -10,9 +10,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: built image
-        run: docker build . -t A01794620/wine-class-api:latest
+        run: docker build . -t docker.io/a01794620/wine-class-api:latest
       - name: push image
         run: |
           docker login -u a01794620 -p ${{secrets.DOCKER_NISH_TTOKEN}}
           docker push docker.io/a01794620/wine-class-api:latest
-          
