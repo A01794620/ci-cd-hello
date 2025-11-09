@@ -1,9 +1,8 @@
 name: MLFlow CI-CD-Hello
 
 on:
-  push:
-      branches:
-        - main
+  [workflow_dispatch]
+
 jobs:
   train:
     runs-on: ubuntu-latest
@@ -22,11 +21,15 @@ jobs:
       - name: Run Training script
         run: |
           python src/train.py
-  deploy:
+  serving:
     needs: train
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy
+      - name: Serving API
         run: |
-          echo "${{secrets.NISH_VAR}}"
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Training script
+        run: |
+          python src/train.py
