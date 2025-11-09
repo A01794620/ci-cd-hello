@@ -10,8 +10,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: built image
-        run: docker build . -t docker.io/${{env.GIT_USR}}/wine-class-api:latest
+        run: docker build . -t docker.io/${{ vars.GIT_USR }}/wine-class-api:latest
       - name: push image
         run: |
-          docker login -u ${{env.GIT_USR}} -p ${{secrets.DOCKER_NISH_TTOKEN}}
-          docker push docker.io/${{env.GIT_USR}}/wine-class-api:latest
+          docker login -u ${{ vars.GIT_USR }} -p ${{secrets.DOCKER_NISH_TTOKEN}}
+          docker push docker.io/${{ vars.GIT_USR }}/wine-class-api:latest
