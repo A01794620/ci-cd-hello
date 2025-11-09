@@ -32,4 +32,4 @@ with mlflow.start_run() as run:
 
 with open("model_pkl/wine_model_.pkl", "wb") as f:
     pickle.dump(model, f)
-    f.close()git 
+    f.close()

@@ -23,6 +23,7 @@ jobs:
         run: |
           python src/train.py
   deploy:
+    needs: train
     runs-on: ubuntu-latest
 
     steps:
