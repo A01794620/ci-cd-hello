@@ -1,0 +1,12 @@
+name: Desplegando en GCP/GitHubActions
+on:
+  push:
+    - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          echo "${{secrets.NISH_VAR}}
