@@ -58,11 +58,11 @@ if __name__ == "__main__":
         if sys.argv[1] == "just_build":
             just_build = True
     if just_build:
-        uvicorn_thread = threading.Thread(target=run_uvicorn)
-        uvicorn_thread.start()
-        time.sleep(5)
-        os.kill(os.getpid(), signal.SIGINT)
-        uvicorn_thread.join()
+        #uvicorn_thread = threading.Thread(target=run_uvicorn)
+        #uvicorn_thread.start()
+        #time.sleep(5)
+        #os.kill(os.getpid(), signal.SIGINT)
+        #uvicorn_thread.join()
         print("API Built Successfully")
     else:
         run_uvicorn()
