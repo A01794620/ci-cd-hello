@@ -22,6 +22,12 @@ jobs:
     needs: train
     runs-on: ubuntu-latest
     steps:
+      - name: Prepara el entorno de servicio de API
+        uses: actions/checkout@v2
+      - name: Configura el entorno de Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
       - name: Prepara el API de Servicio para ser consumido vía REST por los clientes
         run: |
           python -m pip install --upgrade pip
