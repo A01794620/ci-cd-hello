@@ -2,7 +2,7 @@ FROM  python:3.9-slim
 
 WORKDIR /app
 
-COPY model_pkl/wine_model_.pkl /app/
+COPY model_pkl/wine_model_.pkl /app/model_pkl/
 COPY src/main.py /app/
 COPY requirements.txt /app/
 
