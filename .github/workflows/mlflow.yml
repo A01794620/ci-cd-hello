@@ -1,4 +1,4 @@
-name: MLFlow CI-CD-Hello
+name: MLFlow Training
 
 on:
   [workflow_dispatch]
