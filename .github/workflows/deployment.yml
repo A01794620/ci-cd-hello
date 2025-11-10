@@ -2,7 +2,7 @@ name: Despliega la Imagen en un Contenedor en GCP
 on:
   [workflow_dispatch]
 jobs:
-  auth-gcp:
+  deploy-container-gcp:
     runs-on: ubuntu-latest
     steps:
       - name: Autenticación en GCP vía IAM
