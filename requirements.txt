@@ -1,5 +1,5 @@
-numpy==1.22.0
-scikit-learn==1.7.2
+numpy
+scikit-learn
 mlflow
 fastapi
 pydantic
