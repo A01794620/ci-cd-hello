@@ -2,7 +2,7 @@ name: Gestión de Imagen para Contenerización (G57)
 on:
   [workflow_dispatch]
 jobs:
-  auth-gcp:
+  build-registry-container:
     runs-on: ubuntu-latest
     steps:
       - name: Gestión de la Imagen para contenedores
