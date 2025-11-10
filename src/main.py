@@ -10,7 +10,7 @@ model = None
 
 # Recuperar el modelo
 #with open("../model_pkl/wine_model_.pkl", "rb") as f:
-with open("wine_model_.pkl", "rb") as f:
+with open("model_pkl/wine_model_.pkl", "rb") as f:
     model = pickle.load(f)
 
 data = load_wine()
