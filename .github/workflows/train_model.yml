@@ -35,4 +35,4 @@ jobs:
           pip install --upgrade -r ./requirements.txt
       - name: Ejecuta el Servicio
         run: |
-          python src/main.py
+          python src/main.py just_build
