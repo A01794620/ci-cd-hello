@@ -1,4 +1,6 @@
-name: orkflow_dispatch]
+name: Gestión de Imagen para Contenerización (G57)
+on:
+  [workflow_dispatch]
 jobs:
   auth-gcp:
     runs-on: ubuntu-latest
