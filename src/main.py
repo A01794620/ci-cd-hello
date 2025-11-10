@@ -24,7 +24,7 @@ class WineData(BaseModel):
 app = FastAPI()
 
 
-@app.post("/predict")
+@app.post("/predict-nish")
 def predict(wine_data: WineData):
 
     if len(wine_data.features) != model.n_features_in_:
