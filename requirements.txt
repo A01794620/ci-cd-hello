@@ -1,5 +1,5 @@
 mlflow
-scikit-learn
+scikit-learn==1.4.2
 fastapi
 pydantic
 uvicorn

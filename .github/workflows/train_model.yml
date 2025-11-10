@@ -2,24 +2,25 @@ name: Entrena el modelo y lo registra en MLFlow
 on:
   [workflow_dispatch]
 jobs:
-  train:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Prepara el entrenamiento
-        uses: actions/checkout@v2
-      - name: Configura el entorno de Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.8"
-      - name: Instala las dependencias
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r ./requirements.txt
-      - name: Ejecuta el Script de Entrenamiento
-        run: |
-          python src/train.py
+
+  #train:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Prepara el entrenamiento
+  #      uses: actions/checkout@v2
+  #    - name: Configura el entorno de Python
+  #      uses: actions/setup-python@v2
+  #      with:
+  #        python-version: "3.8"
+  #    - name: Instala las dependencias
+  #      run: |
+  #        python -m pip install --upgrade pip
+  #        pip install -r ./requirements.txt
+  #    - name: Ejecuta el Script de Entrenamiento
+  #      run: |
+  #        python src/train.py
   serving:
-    needs: train
+    #needs: train
     runs-on: ubuntu-latest
     steps:
       - name: Prepara el entorno de servicio de API
