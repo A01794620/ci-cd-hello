@@ -2,7 +2,6 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 import pickle
-import numpy as np
 import uvicorn
 from sklearn.datasets import load_wine
 
