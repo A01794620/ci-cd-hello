@@ -47,8 +47,4 @@ jobs:
           service: ${{ vars.GCP_IMG_CANNONICAL }}-adp2
           region: us-central1
           image: us-central1-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
-          flags: '--allow-unauthenticated --port 8000'
-          #env_vars: |
-          #  PORT=8000
-          allow_unauthenticated: true
-
+          flags: '--port 8000 --allow-unauthenticated'
